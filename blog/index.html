@@ -1,0 +1,26 @@
+---
+layout: default
+title: Blog
+---
+
+<section class="featured-blogs" id="blog" aria-label="Featured blog posts">
+  <h2>Blog Posts</h2>
+  <div class="blog-grid">
+    {% for post in paginator.posts %}
+    <article class="blog-card">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+    </article>
+    {% endfor %}
+  </div>
+
+  <nav class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="prev">Previous</a>
+    {% endif %}
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next</a>
+    {% endif %}
+  </nav>
+</section>

@@ -7,4 +7,7 @@ description: >
 baseurl: "" 
 url: "https://labs.techprime.com.au" 
 
-plugins: []
+paginate: 5 # Number of posts per page
+paginate_path: "/blog/page:num/" # Path for paginated pages
+plugins:
+  - jekyll-paginate
