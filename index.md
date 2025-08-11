@@ -17,7 +17,7 @@ title: Welcome
 <section class="featured-blogs" id="blog" aria-label="Featured blog posts">
   <h2>Featured Blog Posts</h2>
   <div class="blog-grid">
-    {% for post in paginator.posts %}
+    {% for post in site.posts %}
     <article class="blog-card" tabindex="0" role="article" aria-labelledby="post-{{ forloop.index }}-title" aria-describedby="post-{{ forloop.index }}-desc">
       <h3 id="post-{{ forloop.index }}-title">
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -27,16 +27,6 @@ title: Welcome
     </article>
     {% endfor %}
   </div>
-
-  <!-- Pagination Links -->
-  <nav class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | relative_url }}" class="prev">Previous</a>
-    {% endif %}
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next</a>
-    {% endif %}
-  </nav>
 </section>
 
 <section class="about" id="about" aria-label="About TechPrime">

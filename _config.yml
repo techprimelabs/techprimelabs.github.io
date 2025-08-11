@@ -8,7 +8,4 @@ baseurl: ""
 url: "https://labs.techprime.com.au" 
 
 theme: minima
-plugins: 
-  - jekyll-paginate
-paginate: 5 # Number of posts per page
-paginate_path: "/page:num/" # Path for paginated pages
+plugins: []
