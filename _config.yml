@@ -7,5 +7,4 @@ description: >
 baseurl: "" 
 url: "https://labs.techprime.com.au" 
 
-theme: minima
 plugins: []

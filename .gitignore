@@ -1,0 +1,19 @@
+# Ignore Jekyll build output
+_site/
+.sass-cache/
+
+# Ignore temporary files
+*.log
+*.tmp
+*.swp
+*.DS_Store
+Thumbs.db
+
+# Ignore dependency files
+Gemfile.lock
+node_modules/
+
+# Ignore system files
+*.bak
+*.old
+*.orig

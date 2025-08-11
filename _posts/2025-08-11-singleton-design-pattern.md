@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "Introduction to singleton design pattern"
 date: 2025-08-11
 excerpt: "An introduction to singleton design pattern."
@@ -74,19 +74,21 @@ A critical section is a part of a program where a shared resource (e.g., a varia
 ```csharp
 public class CounterService
 {
-    private int _count = 0; //This is the shared resource. State.
+    //This is the shared resource. State.
+    private int _count = 0; 
     public void Increment()
     {
-        // Non-thread-safe
-        _count++; // A shared resource is modified here.
+        // Non-thread-safe. A shared resource is modified here.
+        _count++; 
     }
     public int GetCount()
     {
         return _count;
     }
 }
+```
 
-** With Critical Section (Thread Safety)
+**With Critical Section (Thread Safety)**
 
 ```csharp
 public class CounterService
@@ -97,17 +99,20 @@ public class CounterService
     {
         lock (_lock)
         {
-            _count++; // Critical section. Safely modifies the shared resource.
+            // Critical section. Safely modifies the shared resource.
+            _count++; 
         }
     }
     public int GetCount()
     {
         lock (_lock)
         {
-            return _count; // Critical section. Safely reads the shared resource.
+            // Critical section. Safely reads the shared resource.
+            return _count; 
         }
     }
 }
+```
 
 ## 4. What is Double-Checked Locking?
 A technique to optimize thread-safe Singleton creation by reducing unnecessary locking overhead.
@@ -136,7 +141,8 @@ public class CounterService
     // Private constructor to prevent instantiation
     private CounterService() 
     {
-        _count = 0; // Initialize the counter
+        // Initialize the counter
+        _count = 0; 
     }
 
     // Public property to access the single instance
@@ -146,7 +152,8 @@ public class CounterService
         {
             if (_instance == null)
             {
-                lock (_lock) // Lock to ensure thread safety
+                // Lock to ensure thread safety
+                lock (_lock) 
                 {
                     if (_instance == null)
                     {
@@ -161,7 +168,8 @@ public class CounterService
     // Thread-safe method to increment the counter
     public void Increment()
     {
-        lock (_lock) // Lock to protect increment operation
+        // Lock to protect increment operation
+        lock (_lock) 
         {
             _count++;
         }
@@ -170,13 +178,14 @@ public class CounterService
     // Thread-safe method to retrieve the counter value
     public int GetValue()
     {
-        lock (_lock) // Lock to protect read operation
+        // Lock to protect read operation
+        lock (_lock) 
         {
             return _count;
         }
     }
 }
-
+```
 
 ## 6. What is the other approach of creating Singleton objects?
 In modern software development, Singletons using Dependency Injection (DI) frameworks are more common than the traditional approach. DI frameworks have become widely used due to their flexibility, ease of testing, and better support for managing object lifetimes.
@@ -221,12 +230,15 @@ public interface ICounterService
 public class CounterService : ICounterService
 {
     private int _counter = 0;
-    private readonly object _lock = new object(); // Lock object to ensure thread-safety
+
+    // Lock object to ensure thread-safety
+    private readonly object _lock = new object(); 
 
     // Increment the counter in a thread-safe manner
     public int IncrementCounter()
     {
-        lock (_lock)  // Ensure only one thread can increment the counter at a time
+        // Ensure only one thread can increment the counter at a time
+        lock (_lock)  
         {
             _counter++;
             return _counter;
@@ -239,6 +251,7 @@ public class CounterService : ICounterService
         return _counter;
     }
 }
+```
 
 Registering the CounterService as singleton in DI framework:
 
@@ -259,7 +272,7 @@ public class Startup
         // Application setup (middleware, routing, etc.)
     }
 }
-
+```
 
 ## Why No Double-Checked Locking?
 When you register a class as a singleton in a DI framework, the framework ensures that the instance is created only once, and it manages the threading concerns internally, making manual double-checked locking unnecessary.
@@ -271,4 +284,4 @@ So, by relying on DI for singleton creation, you can avoid the complexity of dou
 ## Conclusion
 Mastering the Singleton pattern and understanding the nuances of thread safety can greatly improve the performance and reliability of your applications. By using Dependency Injection, you can manage Singleton instances with ease, while the DI framework handles the lifecycle, though you may still need to implement locking to ensure thread safety when accessing shared resources.
 
-Hope you enjoyed it as much as I enjoyed writing for you. If you liked it, please give us a clap.
+Hope you enjoyed it as much as I enjoyed writing for you.
