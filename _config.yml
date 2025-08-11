@@ -1,0 +1,11 @@
+title: TechPrime Demo Labs
+email: contact@techprime.com.au
+description: >
+  TechPrime is a leading technology company dedicated to delivering innovative software solutions.
+  This site features our latest blogs and articles, where we explore new ideas and cutting-edge technologies.
+
+baseurl: "" 
+url: "https://labs.techprime.com.au" 
+
+theme: minima
+plugins: []
