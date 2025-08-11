@@ -102,7 +102,7 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding: 4rem 1rem 4rem;
+    /* padding: 4rem 1rem 4rem; */
     color: var(--color-text);
   }
   .hero h1 {
@@ -161,7 +161,7 @@
   /* Featured Blogs */
   .featured-blogs {
     background: #fff;
-    padding: 2rem 2rem 4rem;
+    padding: 0.5rem 2rem 2rem;
     border-radius: 6px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     color: var(--color-text);
@@ -217,7 +217,7 @@
   /* About and Contact sections */
   section.about, section.contact {
     background: #fff;
-    padding: 3rem 2rem;
+    padding: 1rem 2rem;
     border-radius: 6px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     margin-top: 1.5rem;
