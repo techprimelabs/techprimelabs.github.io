@@ -3,83 +3,218 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TechPrime - IT Services</title>
+  <title>TechPrime Labs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f7fc;
-      color: #333;
+      font-family: 'Poppins', sans-serif;
+      background: #fafafa;
+      color: #222;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
     }
-    header {
-      background-color: #0078d4;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      letter-spacing: 1.5px;
-    }
-    main {
-      flex-grow: 1;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-    main h2 {
+    a {
       color: #0078d4;
-      margin-bottom: 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
-    main p {
-      font-size: 1.2rem;
-      line-height: 1.6;
+    a:hover {
+      color: #005a9e;
     }
-    footer {
-      background-color: #0078d4;
-      color: white;
+
+    /* Navbar */
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1.5px;
+      color: #0078d4;
+    }
+    nav a {
+      margin-left: 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #222;
+    }
+
+    /* Hero */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       text-align: center;
-      padding: 15px 10px;
+      padding: 6rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #222;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+      color: #444;
+    }
+    .btn-primary {
+      background: #0078d4;
+      color: white;
+      padding: 0.75rem 2.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,120,212,0.3);
+      transition: background 0.3s ease;
+      align-self: center;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+    .btn-primary:hover {
+      background: #005a9e;
+      box-shadow: 0 6px 14px rgba(0,90,158,0.5);
+    }
+
+    /* Featured Blogs */
+    .featured-blogs {
+      background: #fff;
+      padding: 3rem 2rem 5rem;
+      max-width: 960px;
+      margin: 3rem auto 0;
+      border-radius: 6px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      color: #222;
+    }
+    .featured-blogs h2 {
+      color: #0078d4;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+    .blog-card {
+      background: #f5f5f5;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #333;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0,120,212,0.15);
+    }
+    .blog-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: #0078d4;
+    }
+    .blog-card p {
+      color: #555;
+      flex-grow: 1;
+      margin-bottom: 1.2rem;
+      line-height: 1.4;
+    }
+    .blog-card time {
+      font-size: 0.9rem;
+      color: #888;
+      font-style: italic;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f3f3f3;
+      color: #666;
       font-size: 0.9rem;
       margin-top: auto;
+      user-select: none;
     }
-    @media (max-width: 600px) {
-      main {
-        margin: 20px 10px;
-        padding: 15px;
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .btn-primary {
+        padding: 0.6rem 1.8rem;
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>TechPrime</h1>
-  </header>
 
-  <main>
-    <h2>Welcome to TechPrime</h2>
-    <p>
-      At TechPrime, we specialize in providing top-notch IT services tailored to meet your business needs. Our expertise spans across
-      <strong>.NET development</strong>, <strong>Microsoft Azure cloud solutions</strong>, and a wide range of modern IT technologies.
-    </p>
-    <p>
-      Whether you are looking to build robust applications, migrate your infrastructure to the cloud, or optimize your existing systems,
-      our team of experienced professionals is here to help you succeed.
-    </p>
-    <p>
-      Partner with TechPrime for innovative, reliable, and scalable IT solutions that empower your business to thrive in the digital age.
-    </p>
-  </main>
+<header>
+  <div class="logo">TechPrime Labs</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#blog">Blog</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <footer>
-    &copy; 2025 TechPrime. All rights reserved.
-  </footer>
+<section class="hero" id="home">
+  <h1>Welcome to TechPrime Labs</h1>
+  <p>Exploring code, technology, and ideas with passion and precision.</p>
+  <button class="btn-primary" onclick="document.getElementById('blog').scrollIntoView({behavior:'smooth'})">Read the Blog</button>
+</section>
+
+<section class="featured-blogs" id="blog">
+  <h2>Featured Blog Posts</h2>
+  <div class="blog-grid">
+    <article class="blog-card" tabindex="0">
+      <h3>Building Scalable .NET APIs</h3>
+      <p>Learn best practices for designing and deploying scalable .NET backend services that handle millions of requests.</p>
+      <time datetime="2025-08-01">August 1, 2025</time>
+    </article>
+    <article class="blog-card" tabindex="0">
+      <h3>Introduction to Azure Functions</h3>
+      <p>Discover serverless computing with Azure Functions and how to streamline your cloud workflows efficiently.</p>
+      <time datetime="2025-07-15">July 15, 2025</time>
+    </article>
+    <article class="blog-card" tabindex="0">
+      <h3>Effective GitHub Workflows</h3>
+      <p>Master GitHub Actions and CI/CD pipelines to automate your deployments and improve your development cycle.</p>
+      <time datetime="2025-06-28">June 28, 2025</time>
+    </article>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 TechPrime Labs &mdash; Crafted with ❤️ by Rahul
+</footer>
+
 </body>
 </html>
